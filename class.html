@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quote of the Day</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 500px;
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        #quote {
+            font-size: 22px;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        #author {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #loading {
+            font-weight: bold;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>💡 Quote of the Day</h1>
+
+        <!-- Loading message -->
+        <p id="loading">Loading quote...</p>
+
+        <!-- Quote -->
+        <p id="quote"></p>
+
+        <!-- Author -->
+        <p id="author"></p>
+
+        <!-- Error message -->
+        <p id="error"></p>
+
+        <!-- New Quote Button -->
+        <button onclick="getQuote()">
+            New Quote
+        </button>
+
+    </div>
+
+
+    <script>
+
+        // Fallback quote
+        const fallbackQuote = {
+            quote: "The only way to do great work is to love what you do.",
+            author: "Steve Jobs"
+        };
+
+
+        // Function to fetch quote
+        async function getQuote() {
+
+            const quoteElement = document.getElementById("quote");
+            const authorElement = document.getElementById("author");
+            const loadingElement = document.getElementById("loading");
+            const errorElement = document.getElementById("error");
+
+
+            // Show loading
+            loadingElement.style.display = "block";
+
+            quoteElement.textContent = "";
+            authorElement.textContent = "";
+            errorElement.textContent = "";
+
+
+            try {
+
+                // Fetch random quote
+                const response = await fetch(
+                    "https://dummyjson.com/quotes/random"
+                );
+
+
+                // Check response
+                if (!response.ok) {
+                    throw new Error("Failed to fetch quote");
+                }
+
+
+                // Convert response to JSON
+                const data = await response.json();
+
+
+                // Hide loading
+                loadingElement.style.display = "none";
+
+
+                // Display quote
+                quoteElement.textContent = `"${data.quote}"`;
+
+                authorElement.textContent = `— ${data.author}`;
+
+            }
+
+
+            catch (error) {
+
+                console.error(error);
+
+
+                // Hide loading
+                loadingElement.style.display = "none";
+
+
+                // Display fallback quote
+                quoteElement.textContent =
+                    `"${fallbackQuote.quote}"`;
+
+                authorElement.textContent =
+                    `— ${fallbackQuote.author}`;
+
+
+                errorElement.textContent =
+                    "Unable to fetch a new quote. Showing a default quote.";
+            }
+
+        }
+
+
+        // Fetch quote when page loads
+        getQuote();
+
+    </script>
+
+</body>
+
+</html>

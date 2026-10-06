@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Bakery Landing Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 10px;
+            padding: 20px;
+            bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Carousel -->
+    <div id="heroCarousel"
+         class="carousel slide"
+         data-bs-ride="carousel">
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button"
+                    data-bs-target="#heroCarousel"
+                    data-bs-slide-to="0"
+                    class="active"
+                    aria-current="true"
+                    aria-label="Slide 1"></button>
+
+            <button type="button"
+                    data-bs-target="#heroCarousel"
+                    data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+
+            <button type="button"
+                    data-bs-target="#heroCarousel"
+                    data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+        </div>
+
+        <!-- Carousel Slides -->
+        <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active"
+                 data-bs-interval="3000">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1400"
+                     class="d-block w-100"
+                     alt="Beautiful chocolate cake">
+
+                <div class="carousel-caption">
+                    <h2>Make Every Moment Sweeter</h2>
+                    <p>Delicious cakes made with love for every occasion.</p>
+                    <a href="#products" class="btn btn-primary">
+                        Explore Cakes
+                    </a>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item"
+                 data-bs-interval="3000">
+                <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=1400"
+                     class="d-block w-100"
+                     alt="Freshly baked cupcakes">
+
+                <div class="carousel-caption">
+                    <h2>Delicious Cupcakes</h2>
+                    <p>Enjoy our freshly baked cupcakes every day.</p>
+                    <a href="#products" class="btn btn-primary">
+                        View Products
+                    </a>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item"
+                 data-bs-interval="3000">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1400"
+                     class="d-block w-100"
+                     alt="Freshly baked cookies">
+
+                <div class="carousel-caption">
+                    <h2>Sweet Treats for Everyone</h2>
+                    <p>Discover our delightful collection of cookies.</p>
+                    <a href="#products" class="btn btn-primary">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Previous Button -->
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#heroCarousel"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"
+                  aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <!-- Next Button -->
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#heroCarousel"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon"
+                  aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+
+    </div>
+
+    <!-- Products Section -->
+    <section id="products" class="container py-5 text-center">
+        <h2>Our Products</h2>
+        <p>Explore our delicious cakes, cupcakes and cookies.</p>
+    </section>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
